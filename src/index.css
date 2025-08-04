@@ -98,10 +98,6 @@ button {
   width: 250px;
 }
 
-.div-card-wrapper {
-  width: 270px;
-}
-
 .p-cart {
   color: #7b6361;
 }
@@ -161,7 +157,7 @@ button {
   font-weight: bold;
 }
 
-.div-delivery-info {
+.div-delivery-info, .modal-middle {
   background-color: #fcf8f5;
 }
 
@@ -170,4 +166,28 @@ button {
   border-radius: 25px;
   color: white;
   width: 100%;
+}
+
+.btn-submit:hover {
+  background-color: #952c0c;
+  border: 1px solid transparent;
+}
+
+.img-chosen {
+  border: 3px solid #c83b0e;
+}
+
+.p-modal-wish {
+  color: gray;
+}
+
+.add-to-cart-button:hover{
+  border: 1px solid #c83b0e;
+  color: #c83b0e;
+}
+
+@media (max-width: 576px) {
+  .cart-div {
+    width: auto;
+  }
 }

@@ -1,17 +1,26 @@
 import type { Dispatch, SetStateAction } from "react"
 
+interface ImageSet {
+  thumbnail: string;
+  mobile: string;
+  tablet: string;
+  desktop: string;
+}
+
 interface dessertData {
+  image: ImageSet;
   name: string;
-  quantity: number; 
+  quantity: number;
   price: number;
 }
 
 interface Props {
   chosenCarts: dessertData[],
   setChosenCarts: Dispatch<SetStateAction<dessertData[]>>,
+  setSubmitButtonClicked:Dispatch<SetStateAction<boolean>>
 }
 
-function Cart({chosenCarts, setChosenCarts}:Props) {
+function Cart({chosenCarts, setChosenCarts, setSubmitButtonClicked}:Props) {
   function handleRemoveClick(item: dessertData) {
     setChosenCarts(prev => prev.filter(el => el.name !== item.name));
   }
@@ -45,14 +54,14 @@ function Cart({chosenCarts, setChosenCarts}:Props) {
 
             <div className="d-flex justify-content-between">
               <p>Order total</p>
-              <h3>${}</h3>
+              <h3>${chosenCarts.reduce((sum, el) => sum + el.price*el.quantity, 0)}</h3>
             </div>
 
             <div className="div-delivery-info rounded-2 p-2 mt-2 w-100">
               <p className="m-0"><img src="/assets/images/icon-carbon-neutral.svg" alt="icon carbon neutral"/>This is a <b>carbon-neutral</b> delivery</p>
             </div>
 
-            <button className="btn-submit mt-4">Confirm Order</button>
+            <button className="btn-submit mt-4" onClick={() => setSubmitButtonClicked(true)}>Confirm Order</button>
           </>
         }
     </div>

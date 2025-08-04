@@ -1,10 +1,18 @@
 import { useEffect, useState } from "react"
 import type { Dispatch, SetStateAction } from "react"
 
+interface ImageSet {
+  thumbnail: string;
+  mobile: string;
+  tablet: string;
+  desktop: string;
+}
+
 interface dessertData {
-    name: string;
-    quantity: number; 
-    price: number;
+  image: ImageSet;
+  name: string;
+  quantity: number;
+  price: number;
 }
 
 interface Props {
@@ -21,13 +29,15 @@ function List({chosenCarts, setChosenCarts, setAddButtonClicked}:Props) {
     });
 
     function handleRemoveCartClick(item: dessertData) {
-        setChosenCarts((prev) => {
-            return prev.map(cartItem =>
+        setChosenCarts(prev =>
+            prev
+            .map(cartItem =>
                 cartItem.name === item.name
-                ? { ...cartItem, quantity: cartItem.quantity - 1 }
-                : cartItem
-            );
-        });
+                    ? { ...cartItem, quantity: cartItem.quantity - 1 }
+                    : cartItem
+            )
+            .filter(cartItem => cartItem.quantity > 0)
+        );
     }
 
     function handleAddToCartClick(item: dessertData) {
@@ -56,47 +66,55 @@ function List({chosenCarts, setChosenCarts, setAddButtonClicked}:Props) {
             <div className="container text-center">
                 <div className="row align-items-start">
                     {dataJson.map((el, index) =>
-                        <div key={index} className="div-card-wrapper col-4 mb-3 px-0">
+                        <div key={index} className="div-card-wrapper col-10 col-md-4 mb-3 px-0 mx-auto">
                             <div className="card p-0 bg-transparent border border-0">
-                                <div>
-                                    <img src={`${el.image.desktop}`} alt={el.name} title={el.name} width={250} className="rounded-2"/>      
+                                <div>      
                                     {
-                                        chosenCarts.find(arEl => arEl.name === el.name) ? 
-                                        <div className="d-flex justify-content-center button-div-wrapper">
-                                            <div className="button-div">
-                                                <button onClick={() => handleRemoveCartClick(
-                                                {
-                                                    name: el.name,
-                                                    quantity: 1,
-                                                    price: el.price
-                                                }
-                                                )}>
-                                                    <img src="/assets/images/icon-decrement-quantity.svg"/>
-                                                </button>
+                                        chosenCarts.find(arEl => arEl.name === el.name && arEl.quantity > 0) ? 
+                                        <>
+                                            <img src={`${el.image.desktop}`} alt={el.name} title={el.name} width={250} className="rounded-2 img-chosen"/>
+                                            <div className="d-flex justify-content-center button-div-wrapper">
+                                                <div className="button-div">
+                                                    <button className="button-change-quantity" onClick={() => handleRemoveCartClick(
+                                                    {   
+                                                        image: el.image,
+                                                        name: el.name,
+                                                        quantity: 1,
+                                                        price: el.price
+                                                    }
+                                                    )}>
+                                                        <img src="/assets/images/icon-decrement-quantity.svg"/>
+                                                    </button>
 
-                                                <p className="text-white m-0 fx-bold">{chosenCarts.find(arEl => arEl.name === el.name)?.quantity}</p>
+                                                    <p className="text-white m-0 fx-bold">{chosenCarts.find(arEl => arEl.name === el.name)?.quantity}</p>
 
-                                                <button onClick={() => handleAddToCartClick(
-                                                {
-                                                    name: el.name,
-                                                    quantity: 1,
-                                                    price: el.price
-                                                }
-                                                )}>
-                                                    <img src="/assets/images/icon-increment-quantity.svg"/>
-                                                </button>
+                                                    <button className="button-change-quantity" onClick={() => handleAddToCartClick(
+                                                    {
+                                                        image: el.image,
+                                                        name: el.name,
+                                                        quantity: 1,
+                                                        price: el.price
+                                                    }
+                                                    )}>
+                                                        <img src="/assets/images/icon-increment-quantity.svg"/>
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </>
                                         :
-                                        <button className="btn rounded-5 px-4 bg-white" onClick={() => handleAddToCartClick(
-                                            {
-                                                name: el.name,
-                                                quantity: 1,
-                                                price: el.price
-                                            }
-                                        )}>
-                                            <img src="/assets/images/icon-add-to-cart.svg"/>Add to Cart
-                                        </button>
+                                        <>
+                                            <img src={`${el.image.desktop}`} alt={el.name} title={el.name} width={250} className="rounded-2 img-not-chosen"/>
+                                            <button className="btn rounded-5 px-4 bg-white add-to-cart-button" onClick={() => handleAddToCartClick(
+                                                {
+                                                    image: el.image,
+                                                    name: el.name,
+                                                    quantity: 1,
+                                                    price: el.price
+                                                }
+                                            )}>
+                                                <img src="/assets/images/icon-add-to-cart.svg"/>Add to Cart
+                                            </button>
+                                        </>
                                     }
                                 </div>
                                 <div className="card-body text-start p-0 pt-2">
