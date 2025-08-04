@@ -68,10 +68,106 @@ button:focus-visible {
   }
 }
 
-.h1-desserts {
+.h1-desserts, .p-span-cost, .p-name-in-cart {
   color: #331c14;
+}
+
+.h1-cart {
+  color: #c83b0e;
+  font-weight: bold;
 }
 
 button {
   margin-top: -30px;
+}
+
+.btn {
+  border: 1px solid #c83b0e;
+  font-weight: bold;
+}
+
+.card-body .p-category, .p-span-price {
+  color: gray;
+}
+
+.card-body .p-price, .p-span-quantity {
+  color: #c83b0e;
+}
+
+.card {
+  width: 250px;
+}
+
+.div-card-wrapper {
+  width: 270px;
+}
+
+.p-cart {
+  color: #7b6361;
+}
+
+.cart-div {
+  width: 500px;
+}
+
+.button-div {
+  margin-top: -20px;
+  height: 38px;
+  width: 158px;
+  background-color: #c83b0e;
+  position: relative;
+  z-index: 10;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.button-div button {
+  border: 1px solid white;
+  background-color: #c83b0e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 0px;
+}
+
+.button-div-wrapper {
+  margin-bottom: 6px;
+}
+
+.btn-remove-item {
+  border: 1px solid #bcb6b6;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 0px;
+}
+
+.p-span-quantity {
+  font-weight: bold;
+}
+
+.div-delivery-info {
+  background-color: #fcf8f5;
+}
+
+.btn-submit {
+  background-color: #c83b0e;
+  border-radius: 25px;
+  color: white;
+  width: 100%;
 }
