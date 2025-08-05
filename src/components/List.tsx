@@ -12,7 +12,7 @@ function List({chosenCarts, setChosenCarts, setAddButtonClicked}:Props) {
     const [dataJson, setDataJson] = useState<any[]>([]);
 
     useEffect(() => {
-        fetch("/data.json").then(response => response.json()).then(data => setDataJson(data));
+        fetch("https://myroslav13.github.io/ProductList/assets/data.json").then(response => response.json()).then(data => setDataJson(data));
     });
 
     function handleRemoveCartClick(item: dessertData) {
@@ -70,7 +70,7 @@ function List({chosenCarts, setChosenCarts, setAddButtonClicked}:Props) {
                                                         price: el.price
                                                     }
                                                     )}>
-                                                        <img src="/assets/images/icon-decrement-quantity.svg"/>
+                                                        <img src="https://myroslav13.github.io/ProductList/assets/images/icon-decrement-quantity.svg"/>
                                                     </button>
 
                                                     <p className="text-white m-0 fx-bold">{chosenCarts.find(arEl => arEl.name === el.name)?.quantity}</p>
@@ -83,7 +83,7 @@ function List({chosenCarts, setChosenCarts, setAddButtonClicked}:Props) {
                                                         price: el.price
                                                     }
                                                     )}>
-                                                        <img src="/assets/images/icon-increment-quantity.svg"/>
+                                                        <img src="https://myroslav13.github.io/ProductList/assets/images/icon-increment-quantity.svg"/>
                                                     </button>
                                                 </div>
                                             </div>
@@ -99,7 +99,7 @@ function List({chosenCarts, setChosenCarts, setAddButtonClicked}:Props) {
                                                     price: el.price
                                                 }
                                             )}>
-                                                <img src="/assets/images/icon-add-to-cart.svg"/>Add to Cart
+                                                <img src="https://myroslav13.github.io/ProductList/assets/images/icon-add-to-cart.svg"/>Add to Cart
                                             </button>
                                         </>
                                     }

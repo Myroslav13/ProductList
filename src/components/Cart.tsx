@@ -17,7 +17,7 @@ function Cart({chosenCarts, setChosenCarts, setSubmitButtonClicked}:Props) {
         <h1 className="fs-3 h1-cart text-start mb-3">Your Cart ({chosenCarts.length})</h1>
         {chosenCarts.length === 0 ?
           <div>
-              <img src="/assets/images/illustration-empty-cart.svg" alt="illustration empty cart"/>
+              <img src="https://myroslav13.github.io/ProductList/assets/images/illustration-empty-cart.svg" alt="illustration empty cart"/>
               <p className="fs-6 p-cart">Your added items will appear here</p>
           </div> 
           :
@@ -32,7 +32,7 @@ function Cart({chosenCarts, setChosenCarts, setSubmitButtonClicked}:Props) {
                 </div>
 
                 <button className="btn-remove-item" onClick={() => handleRemoveClick(el)}>
-                  <img src="/assets/images/icon-remove-item.svg"/>
+                  <img src="https://myroslav13.github.io/ProductList/assets/images/icon-remove-item.svg"/>
                 </button>
               </div>
             )}
@@ -45,7 +45,7 @@ function Cart({chosenCarts, setChosenCarts, setSubmitButtonClicked}:Props) {
             </div>
 
             <div className="div-delivery-info rounded-2 p-2 mt-2 w-100">
-              <p className="m-0"><img src="/assets/images/icon-carbon-neutral.svg" alt="icon carbon neutral"/>This is a <b>carbon-neutral</b> delivery</p>
+              <p className="m-0"><img src="https://myroslav13.github.io/ProductList/assets/images/icon-carbon-neutral.svg" alt="icon carbon neutral"/>This is a <b>carbon-neutral</b> delivery</p>
             </div>
 
             <button className="btn-submit mt-4" onClick={() => setSubmitButtonClicked(true)}>Confirm Order</button>

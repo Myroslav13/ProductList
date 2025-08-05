@@ -17,7 +17,7 @@ function Confirmation({setSubmitButtonClicked, chosenCarts, setChosenCarts}:Prop
           <div className="modal-content p-4">
 
             <div className="text-start">
-              <img src="/assets/images/icon-order-confirmed.svg"/>
+              <img src="https://myroslav13.github.io/ProductList/assets/images/icon-order-confirmed.svg"/>
               <h2 className="modal-title fw-bold mt-3">Order Confirmed</h2>
               <p className="p-modal-wish">We hope you enjoy your food!</p>
             </div>
