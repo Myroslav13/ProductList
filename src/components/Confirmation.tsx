@@ -1,18 +1,5 @@
 import type { Dispatch, SetStateAction } from "react"
-
-interface ImageSet {
-  thumbnail: string;
-  mobile: string;
-  tablet: string;
-  desktop: string;
-}
-
-interface dessertData {
-  image: ImageSet;
-  name: string;
-  quantity: number;
-  price: number;
-}
+import type {dessertData} from "./interfaces"
 
 interface Props{
   chosenCarts: dessertData[],
